@@ -10,6 +10,7 @@
 		03219292479E49DE3CA0D7FA /* Pods_newsAlamofireTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387CABFCD72F9B00587C99F8 /* Pods_newsAlamofireTests.framework */; };
 		2A30F13C65B7A853E11E9F98 /* Pods_newsAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB5D98930CBDB7A904093B0 /* Pods_newsAlamofire.framework */; };
 		B42E027D22B18FD20070C799 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E027C22B18FD20070C799 /* UIImage.swift */; };
+		B42E027F22B2D4710070C799 /* RicercaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E027E22B2D4710070C799 /* RicercaVC.swift */; };
 		B4D2518C22B0228B00211569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2518B22B0228B00211569 /* AppDelegate.swift */; };
 		B4D2518E22B0228B00211569 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2518D22B0228B00211569 /* NewsVC.swift */; };
 		B4D2519122B0228B00211569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D2518F22B0228B00211569 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		81AC422F07C8BB4EA531A6E2 /* Pods-newsAlamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAlamofire.release.xcconfig"; path = "Target Support Files/Pods-newsAlamofire/Pods-newsAlamofire.release.xcconfig"; sourceTree = "<group>"; };
 		91E6641E7797A6B0C916C967 /* Pods-newsAlamofireTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAlamofireTests.release.xcconfig"; path = "Target Support Files/Pods-newsAlamofireTests/Pods-newsAlamofireTests.release.xcconfig"; sourceTree = "<group>"; };
 		B42E027C22B18FD20070C799 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		B42E027E22B2D4710070C799 /* RicercaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RicercaVC.swift; sourceTree = "<group>"; };
 		B4D2518822B0228B00211569 /* newsAlamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newsAlamofire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D2518B22B0228B00211569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4D2518D22B0228B00211569 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				B4D2518D22B0228B00211569 /* NewsVC.swift */,
+				B42E027E22B2D4710070C799 /* RicercaVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42E027F22B2D4710070C799 /* RicercaVC.swift in Sources */,
 				B4D2518E22B0228B00211569 /* NewsVC.swift in Sources */,
 				B42E027D22B18FD20070C799 /* UIImage.swift in Sources */,
 				B4D251AF22B0248700211569 /* NewsCell.swift in Sources */,

@@ -27,6 +27,7 @@ class NewsVC: UIViewController {
     var arrayImage : [String] = []
     let news = News()
     
+   
     
     
     override func viewDidLoad() {
@@ -34,6 +35,11 @@ class NewsVC: UIViewController {
         newsCollection.delegate = self
         newsCollection.dataSource = self
         startJSON()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        newsCollection.reloadData()
     }
 let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fef23e4c9a2a15"
   let old = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d1100591b9054c3da2fef23e4c9a2a15"
