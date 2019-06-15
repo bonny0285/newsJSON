@@ -63,7 +63,7 @@ let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fe
         Alamofire.request(url, method: .get, parameters:parameters).responseJSON{
             response in
             if response.result.isSuccess{
-                print(response.request?.description)
+                //print(response.request?.description)
                 print("Success! Got the weather data")
                 let newsJSON : JSON = JSON(response.result.value!)
                 self.updateWeatherData(json: newsJSON)

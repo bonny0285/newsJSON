@@ -70,7 +70,8 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         testLbl.text = pickerData[row]
         nomeRegione = pickerData[row]
         ricercaBtn.isHidden = false
-        print(getStateID(nomeCitta: testLbl.text!))
+        print("SCELTA",getStateID(nomeCitta: testLbl.text!))
+        print("SCELTA VAR", letteraRegione)
         
         if getStateID(nomeCitta: testLbl.text!) == "Unknow" || getStateID(nomeCitta: testLbl.text!) == ""{
             ricercaBtn.isHidden = true
@@ -103,15 +104,18 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "news" {
             let viewController = segue.destination as! NewsVC
-            viewController.inizialeCitta = letteraRegione
+            viewController.inizialeCitta = getStateID(nomeCitta: testLbl.text!)
             viewController.nomeCitta = nomeRegione
         }
     }
     
     
     @IBAction func ricercaBtnWasPressed(_ sender: Any) {
+        
         performSegue(withIdentifier: "news", sender: letteraRegione)
         performSegue(withIdentifier: "news", sender: nomeRegione)
+        print("LETTERA REGIONE",letteraRegione)
+        print("NOME REGIONE",nomeRegione)
     }
     
     
