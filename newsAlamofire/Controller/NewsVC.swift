@@ -29,6 +29,7 @@ class NewsVC: UIViewController {
     var arrayTitle : [String] = []
     var arrayImage : [String] = []
     var arrayURL : [String] = []
+    var arrayLink : [String] = []
     let news = News()
     
    
@@ -82,6 +83,7 @@ let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fe
              var image = json["articles"][i]["urlToImage"].stringValue
              var title = json["articles"][i]["title"].stringValue
              var url = json["articles"][i]["url"].stringValue
+            var link = json["articles"][i]["url"]
              arrayTitle.append(title)
              arrayImage.append(image)
              arrayURL.append(url)
@@ -127,9 +129,10 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as? NewsCell
         let indexTitle = arrayTitle[indexPath.row]
         let indexImage = arrayImage[indexPath.row]
+        let indexLink = arrayURL[indexPath.row]
         print("tableView", arrayTitle)
         print("index", index)
-        cell?.setupTable(title : indexTitle, image: indexImage)
+        cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink)
         return cell!
     }
     
