@@ -11,19 +11,20 @@ import UIKit
 class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     
-
+    
     @IBOutlet weak var testLbl: UILabel!
+    @IBOutlet weak var cityLbl: UILabel!
+    @IBOutlet weak var cityPicker: UIPickerView!
+    @IBOutlet weak var ricercaBtn: UIButton!
+    
+    
     var letteraRegione : String?
     var nomeRegione : String?
     
-    @IBOutlet weak var cityLbl: UILabel!
-    
-    
-    @IBOutlet weak var ricercaBtn: UIButton!
     let pickerData = ["------------","EMIRATI ARABI UNITI","ARGENTINA","AUSTRIA","AUSTRALIA","BELGIO","BULGARIA","BRASILE","CANADA","CINA","CUBA","GERMANIA","EGITTO","FRANCIA","GRAN BRETAGNA","GRECIA","HONG KONG","IRLANDA","INDIA","ITALIA","GIAPPONE","OLANDA","NORVEGIA","NUOVA ZELANDA","FILIPPINE","RUSSIA","TAILANDIA","STATI UNITI D'AMERICA","SUD AFRICA"].sorted()
     
     
-    @IBOutlet weak var cityPicker: UIPickerView!
+    
     
     
     
@@ -36,15 +37,15 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
             // Always adopt a light interface style.
             overrideUserInterfaceStyle = .light
         }
-
+        
         cityPicker.delegate = self
         cityPicker.dataSource = self
         cityPicker.setValue(UIColor.white, forKey: "textColor")
         ricercaBtn.isHidden = true
-       
+        
     }
     
-
+    
     func risultato(citta : String){
         if citta == "" || citta == "Unknow"{
             ricercaBtn.isHidden = true
@@ -63,6 +64,7 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         return pickerData.count
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         return pickerData[row]
@@ -73,7 +75,7 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         letteraRegione = getStateID(nomeCitta: testLbl.text!)
         cityLbl.text = letteraRegione
         
-      
+        
         testLbl.text = pickerData[row]
         nomeRegione = pickerData[row]
         ricercaBtn.isHidden = false
@@ -102,7 +104,7 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         
         return pickerLabel!
     }
-   
+    
     
     
     
@@ -123,7 +125,7 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     func getStateID(nomeCitta : String) -> String{
         switch nomeCitta {
-        
+            
         case "EMIRATI ARABI UNITI":
             return "ae"
         case "ARGENTINA":
@@ -183,8 +185,8 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         case "------------":
             return "Unknow"
         default:
-            return
-                "unknow"
+            return "unknow"
+            
         }
     }
     
