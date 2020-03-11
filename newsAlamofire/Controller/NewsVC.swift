@@ -15,96 +15,96 @@ import SafariServices
 
 
 class NewsVC: UIViewController {
+    
+    var getNewFromJSON = GetNewsFromJSON()
     var nomeCitta : String?
     var inizialeCitta : String?
-    let APP_ID = "d1100591b9054c3da2fef23e4c9a2a15"
-    let MY_URL = "https://newsapi.org/v2/top-headlines?country="
-   
-    
-    var count = 0
-    @IBOutlet weak var newsCollection: UICollectionView!
-    
-    
-    @IBOutlet weak var cityTitleLbl: UILabel!
     var arrayTitle : [String] = []
     var arrayImage : [String] = []
     var arrayURL : [String] = []
     var arrayLink : [String] = []
-    let news = News()
+    var arrayAuthors : [String] = []
+   // let news = News()
+//    let APP_ID = "d1100591b9054c3da2fef23e4c9a2a15"
+//    let MY_URL = "https://newsapi.org/v2/top-headlines?country="
+   
+    
+   // var count = 0
+    @IBOutlet weak var newsCollection: UICollectionView!
+    @IBOutlet weak var cityTitleLbl: UILabel!
+    
     
    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("cazzoooooo",inizialeCitta!)
+        
+        // overrideUserInterfaceStyle is available with iOS 13
+        if #available(iOS 13.0, *) {
+            // Always adopt a light interface style.
+            overrideUserInterfaceStyle = .light
+        }
+        
         newsCollection.delegate = self
         newsCollection.dataSource = self
+        getNewFromJSON.delegate = self
         cityTitleLbl.text = nomeCitta
-        startJSON()
+        getNewFromJSON.getJSON(forCity: inizialeCitta!)
+        //startJSON()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         newsCollection.reloadData()
-       // startJSON()
-    }
-let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fef23e4c9a2a15"
-  let old = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d1100591b9054c3da2fef23e4c9a2a15"
-    
-    
-    func startJSON (){
-       let params : [String : String] = ["apiKey" : APP_ID]
-        getWeatherData(url: MY_URL + inizialeCitta! , parameters: params)
     }
     
-    
-    func getWeatherData(url: String, parameters: [String:String]){
-        Alamofire.request(url, method: .get, parameters:parameters).responseJSON{
-            response in
-            if response.result.isSuccess{
-                //print(response.request?.description)
-                print("Success! Got the weather data")
-                let newsJSON : JSON = JSON(response.result.value!)
-                self.updateWeatherData(json: newsJSON)
-            }
-            else{
-                print("Error \(String(describing: response.result.error))")
-               // self.locationLbl.text = "Connection Issue"
-            }
-        }
-    }
+//let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fef23e4c9a2a15"
+//  let old = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d1100591b9054c3da2fef23e4c9a2a15"
     
     
-    func updateWeatherData(json : JSON){
-        var articles = json["articles"].count
-        for i in 0...19 {
-             var image = json["articles"][i]["urlToImage"].stringValue
-             var title = json["articles"][i]["title"].stringValue
-             var url = json["articles"][i]["url"].stringValue
-            var link = json["articles"][i]["url"]
-             arrayTitle.append(title)
-             arrayImage.append(image)
-             arrayURL.append(url)
-        }
-        var author = json["articles"][0]["author"].stringValue
-        
-        
-        var descriptions = json["articles"][0]["descriprion"].stringValue
-       
-        //var articles = json["articles"].count
-        print("ARTICOLI",articles)
-        
-        print(arrayTitle)
-        print(news.author)
-        print(news.title)
-        print(news.descriptions)
-        print(news.urlToImage)
-        print(news.articles)
-        self.newsCollection.reloadData()
-
-    }
+//    func startJSON (){
+//       let params : [String : String] = ["apiKey" : APP_ID]
+//        getWeatherData(url: MY_URL + inizialeCitta! , parameters: params)
+//    }
+//
+//
+//    func getWeatherData(url: String, parameters: [String:String]){
+//
+//        AF.request(url, method: .get, parameters:parameters).responseJSON{
+//            response in
+//
+//            switch response.result{
+//            case .success(let value):
+//                print("Success! Got the News data")
+//                let json = JSON(arrayLiteral: value)
+//                self.updateNewsData(json: json)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+//
+//
+//    func updateNewsData(json : JSON){
+//
+//        let articles = json[0]["articles"].count
+//
+//        for i in 0...articles - 1 {
+//            let image = json[0]["articles"][i]["urlToImage"].stringValue
+//            let title = json[0]["articles"][i]["title"].stringValue
+//            let url = json[0]["articles"][i]["url"].stringValue
+//           // let link = json[0]["articles"][i]["url"]
+//             arrayTitle.append(title)
+//             arrayImage.append(image)
+//             arrayURL.append(url)
+//        }
+//        //let author = json[0]["articles"][0]["author"].stringValue
+//        //let descriptions = json[0]["articles"][0]["descriprion"].stringValue
+//        self.newsCollection.reloadData()
+//
+//    }
     
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
@@ -119,6 +119,9 @@ let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fe
     }
     
 }
+
+
+//MARK: - UICollectionViewDelegate & UICollectionViewDataSource
 extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -130,9 +133,9 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
         let indexTitle = arrayTitle[indexPath.row]
         let indexImage = arrayImage[indexPath.row]
         let indexLink = arrayURL[indexPath.row]
-        print("tableView", arrayTitle)
-        print("index", index)
-        cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink)
+        let author = arrayAuthors[indexPath.row]
+      
+        cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink,auth: author)
         return cell!
     }
     
@@ -144,3 +147,26 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
 }
 
+//MARK: - GetJSONDelegate
+extension NewsVC: GetJSONDelegate{
+    func getArrayTitle(_ title: [String]) {
+        arrayTitle = title
+        newsCollection.reloadData()
+    }
+    
+    func getArrayImage(_ image: [String]) {
+        arrayImage = image
+        newsCollection.reloadData()
+    }
+    
+    func getArrayURL(_ url: [String]) {
+        arrayURL = url
+        newsCollection.reloadData()
+    }
+    
+    func getArrayAuthors(_ authors: [String]) {
+        arrayAuthors = authors
+        newsCollection.reloadData()
+    }
+    
+}

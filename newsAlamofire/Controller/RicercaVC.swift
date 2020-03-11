@@ -29,6 +29,13 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // overrideUserInterfaceStyle is available with iOS 13
+        if #available(iOS 13.0, *) {
+            // Always adopt a light interface style.
+            overrideUserInterfaceStyle = .light
+        }
 
         cityPicker.delegate = self
         cityPicker.dataSource = self
@@ -70,8 +77,6 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         testLbl.text = pickerData[row]
         nomeRegione = pickerData[row]
         ricercaBtn.isHidden = false
-        print("SCELTA",getStateID(nomeCitta: testLbl.text!))
-        print("SCELTA VAR", letteraRegione)
         
         if getStateID(nomeCitta: testLbl.text!) == "Unknow" || getStateID(nomeCitta: testLbl.text!) == ""{
             ricercaBtn.isHidden = true
@@ -111,11 +116,8 @@ class RicercaVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     @IBAction func ricercaBtnWasPressed(_ sender: Any) {
-        
         performSegue(withIdentifier: "news", sender: letteraRegione)
         performSegue(withIdentifier: "news", sender: nomeRegione)
-        print("LETTERA REGIONE",letteraRegione)
-        print("NOME REGIONE",nomeRegione)
     }
     
     

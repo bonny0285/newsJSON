@@ -14,12 +14,14 @@ class NewsCell: UICollectionViewCell {
     @IBOutlet weak var titleNews: UILabel!
     @IBOutlet weak var imageNews: UIImageView!
     @IBOutlet weak var linkLbl: UILabel!
+    @IBOutlet weak var authorLbl: UILabel!
     
     
-    func setupTable(title : String, image : String, link : String){
+    func setupTable(title : String, image : String, link : String, auth: String){
         titleNews.text = title
         imageNews.downloadedFrom(link: image)
         linkLbl.text = link
+        authorLbl.text = "Author's: \(auth)"
     }
     
     
