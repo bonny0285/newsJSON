@@ -24,12 +24,9 @@ class NewsVC: UIViewController {
     var arrayURL : [String] = []
     var arrayLink : [String] = []
     var arrayAuthors : [String] = []
-   // let news = News()
-//    let APP_ID = "d1100591b9054c3da2fef23e4c9a2a15"
-//    let MY_URL = "https://newsapi.org/v2/top-headlines?country="
+
    
     
-   // var count = 0
     @IBOutlet weak var newsCollection: UICollectionView!
     @IBOutlet weak var cityTitleLbl: UILabel!
     
@@ -51,7 +48,6 @@ class NewsVC: UIViewController {
         getNewFromJSON.delegate = self
         cityTitleLbl.text = nomeCitta
         getNewFromJSON.getJSON(forCity: inizialeCitta!)
-        //startJSON()
         
     }
     
@@ -60,52 +56,7 @@ class NewsVC: UIViewController {
         newsCollection.reloadData()
     }
     
-//let new = "https://newsapi.org/v2/top-headlines?country=us&=d1100591b9054c3da2fef23e4c9a2a15"
-//  let old = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d1100591b9054c3da2fef23e4c9a2a15"
-    
-    
-//    func startJSON (){
-//       let params : [String : String] = ["apiKey" : APP_ID]
-//        getWeatherData(url: MY_URL + inizialeCitta! , parameters: params)
-//    }
-//
-//
-//    func getWeatherData(url: String, parameters: [String:String]){
-//
-//        AF.request(url, method: .get, parameters:parameters).responseJSON{
-//            response in
-//
-//            switch response.result{
-//            case .success(let value):
-//                print("Success! Got the News data")
-//                let json = JSON(arrayLiteral: value)
-//                self.updateNewsData(json: json)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-//
-//
-//    func updateNewsData(json : JSON){
-//
-//        let articles = json[0]["articles"].count
-//
-//        for i in 0...articles - 1 {
-//            let image = json[0]["articles"][i]["urlToImage"].stringValue
-//            let title = json[0]["articles"][i]["title"].stringValue
-//            let url = json[0]["articles"][i]["url"].stringValue
-//           // let link = json[0]["articles"][i]["url"]
-//             arrayTitle.append(title)
-//             arrayImage.append(image)
-//             arrayURL.append(url)
-//        }
-//        //let author = json[0]["articles"][0]["author"].stringValue
-//        //let descriptions = json[0]["articles"][0]["descriprion"].stringValue
-//        self.newsCollection.reloadData()
-//
-//    }
-    
+
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
