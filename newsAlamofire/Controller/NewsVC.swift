@@ -81,12 +81,16 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as? NewsCell
-        let indexTitle = arrayTitle[indexPath.row]
-        let indexImage = arrayImage[indexPath.row]
-        let indexLink = arrayURL[indexPath.row]
-        let author = arrayAuthors[indexPath.row]
+        
       
-        cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink,auth: author)
+        DispatchQueue.main.async {
+            let indexTitle = self.arrayTitle[indexPath.row]
+            let indexImage = self.arrayImage[indexPath.row]
+            let indexLink = self.arrayURL[indexPath.row]
+            let author = self.arrayAuthors[indexPath.row]
+            cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink,auth: author)
+        }
+        
         return cell!
     }
     
