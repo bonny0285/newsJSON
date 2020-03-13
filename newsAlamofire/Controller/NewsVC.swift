@@ -64,9 +64,10 @@ class NewsVC: UIViewController {
     
     func showSafariVC(url : String){
     guard let url = URL(string : url) else { return }
-    
-    let safariVC = SFSafariViewController(url: url)
-    present(safariVC, animated: true)
+        
+    UIApplication.shared.open(url)
+//    let safariVC = SFSafariViewController(url: url)
+//    present(safariVC, animated: true)
     }
     
 }
@@ -95,7 +96,15 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showSafariVC(url: arrayURL[indexPath.row])
+        
+        let alertController = UIAlertController(title: "Attention!", message: "News from: \(self.arrayAuthors[indexPath.row])\n Do you want open: \(arrayURL[indexPath.row])?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
+            self.showSafariVC(url: self.arrayURL[indexPath.row])
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+        
     }
     
     
