@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import newsAlamofire
+@testable import Gazzettino_News
 
 class newsAlamofireTests: XCTestCase {
 

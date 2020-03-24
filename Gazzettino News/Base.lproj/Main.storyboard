@@ -164,6 +164,11 @@
                                                                 <constraint firstItem="rL6-eK-BFb" firstAttribute="centerX" secondItem="xEh-cv-gJm" secondAttribute="centerX" id="u60-FQ-kq6"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="R8c-mJ-NrI">
+                                                            <rect key="frame" x="181" y="176" width="20" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="color" red="1" green="0.6682497973" blue="0.33929678200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -205,6 +210,7 @@
                                             <outlet property="authorLbl" destination="rL6-eK-BFb" id="w1t-Y1-eQg"/>
                                             <outlet property="imageNews" destination="Xh5-c6-4hq" id="Q4g-Ix-Dce"/>
                                             <outlet property="linkLbl" destination="CJ2-Rx-TrC" id="bTg-PR-r9C"/>
+                                            <outlet property="loadingBar" destination="R8c-mJ-NrI" id="B5r-v5-t3G"/>
                                             <outlet property="titleNews" destination="eDp-1v-Qkf" id="bY9-JZ-sLd"/>
                                         </connections>
                                     </collectionViewCell>

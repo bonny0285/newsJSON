@@ -28,5 +28,19 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloadFromURL(url: url, contentMode: mode)
     }
+    
+    
+    func loadImage(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+    
     }
 

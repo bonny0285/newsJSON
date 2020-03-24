@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:newsAlamofire.xcodeproj">
+      location = "group:/Users/massimiliano/Desktop/Refact my app/cartella senza titolo/newsJSON/Gazzettino News.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -17,7 +17,6 @@
 		B4D2519122B0228B00211569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D2518F22B0228B00211569 /* Main.storyboard */; };
 		B4D2519322B0228D00211569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D2519222B0228D00211569 /* Assets.xcassets */; };
 		B4D2519622B0228D00211569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D2519422B0228D00211569 /* LaunchScreen.storyboard */; };
-		B4D251A122B0228D00211569 /* newsAlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D251A022B0228D00211569 /* newsAlamofireTests.swift */; };
 		B4D251AF22B0248700211569 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D251AE22B0248700211569 /* NewsCell.swift */; };
 		B4D251B122B028D100211569 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D251B022B028D100211569 /* News.swift */; };
 /* End PBXBuildFile section */
@@ -41,15 +40,14 @@
 		B42E027C22B18FD20070C799 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		B42E027E22B2D4710070C799 /* RicercaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RicercaVC.swift; sourceTree = "<group>"; };
 		B466BDF924193F550037DDB3 /* GetNewsFromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsFromJSON.swift; sourceTree = "<group>"; };
-		B4D2518822B0228B00211569 /* newsAlamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newsAlamofire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4D2518822B0228B00211569 /* Gazzettino News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gazzettino News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D2518B22B0228B00211569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4D2518D22B0228B00211569 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		B4D2519022B0228B00211569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4D2519222B0228D00211569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4D2519522B0228D00211569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4D2519722B0228D00211569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4D2519C22B0228D00211569 /* newsAlamofireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newsAlamofireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4D251A022B0228D00211569 /* newsAlamofireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsAlamofireTests.swift; sourceTree = "<group>"; };
+		B4D2519C22B0228D00211569 /* Gazzettino NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gazzettino NewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D251A222B0228D00211569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4D251AE22B0248700211569 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		B4D251B022B028D100211569 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -87,8 +85,8 @@
 		B4D2517F22B0228B00211569 = {
 			isa = PBXGroup;
 			children = (
-				B4D2518A22B0228B00211569 /* newsAlamofire */,
-				B4D2519F22B0228D00211569 /* newsAlamofireTests */,
+				B4D2518A22B0228B00211569 /* Gazzettino News */,
+				B4D2519F22B0228D00211569 /* Gazzettino News */,
 				B4D2518922B0228B00211569 /* Products */,
 				EE74746ED769FF026642FF46 /* Pods */,
 				DCFD9102A0706100F52FA341 /* Frameworks */,
@@ -98,13 +96,13 @@
 		B4D2518922B0228B00211569 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4D2518822B0228B00211569 /* newsAlamofire.app */,
-				B4D2519C22B0228D00211569 /* newsAlamofireTests.xctest */,
+				B4D2518822B0228B00211569 /* Gazzettino News.app */,
+				B4D2519C22B0228D00211569 /* Gazzettino NewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B4D2518A22B0228B00211569 /* newsAlamofire */ = {
+		B4D2518A22B0228B00211569 /* Gazzettino News */ = {
 			isa = PBXGroup;
 			children = (
 				B42E027B22B18FAE0070C799 /* Extention */,
@@ -117,16 +115,15 @@
 				B4D2519422B0228D00211569 /* LaunchScreen.storyboard */,
 				B4D2519722B0228D00211569 /* Info.plist */,
 			);
-			path = newsAlamofire;
+			path = "Gazzettino News";
 			sourceTree = "<group>";
 		};
-		B4D2519F22B0228D00211569 /* newsAlamofireTests */ = {
+		B4D2519F22B0228D00211569 /* Gazzettino News */ = {
 			isa = PBXGroup;
 			children = (
-				B4D251A022B0228D00211569 /* newsAlamofireTests.swift */,
 				B4D251A222B0228D00211569 /* Info.plist */,
 			);
-			path = newsAlamofireTests;
+			path = "Gazzettino News";
 			sourceTree = "<group>";
 		};
 		B4D251AB22B0242D00211569 /* View */ = {
@@ -178,9 +175,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B4D2518722B0228B00211569 /* newsAlamofire */ = {
+		B4D2518722B0228B00211569 /* Gazzettino News */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4D251A522B0228D00211569 /* Build configuration list for PBXNativeTarget "newsAlamofire" */;
+			buildConfigurationList = B4D251A522B0228D00211569 /* Build configuration list for PBXNativeTarget "Gazzettino News" */;
 			buildPhases = (
 				1DA0A875AC73C3D1CD3A2932 /* [CP] Check Pods Manifest.lock */,
 				B4D2518422B0228B00211569 /* Sources */,
@@ -192,14 +189,14 @@
 			);
 			dependencies = (
 			);
-			name = newsAlamofire;
+			name = "Gazzettino News";
 			productName = newsAlamofire;
-			productReference = B4D2518822B0228B00211569 /* newsAlamofire.app */;
+			productReference = B4D2518822B0228B00211569 /* Gazzettino News.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B4D2519B22B0228D00211569 /* newsAlamofireTests */ = {
+		B4D2519B22B0228D00211569 /* Gazzettino NewsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4D251A822B0228D00211569 /* Build configuration list for PBXNativeTarget "newsAlamofireTests" */;
+			buildConfigurationList = B4D251A822B0228D00211569 /* Build configuration list for PBXNativeTarget "Gazzettino NewsTests" */;
 			buildPhases = (
 				74B899E7D17C2DAD3A541463 /* [CP] Check Pods Manifest.lock */,
 				B4D2519822B0228D00211569 /* Sources */,
@@ -211,9 +208,9 @@
 			dependencies = (
 				B4D2519E22B0228D00211569 /* PBXTargetDependency */,
 			);
-			name = newsAlamofireTests;
+			name = "Gazzettino NewsTests";
 			productName = newsAlamofireTests;
-			productReference = B4D2519C22B0228D00211569 /* newsAlamofireTests.xctest */;
+			productReference = B4D2519C22B0228D00211569 /* Gazzettino NewsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +232,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B4D2518322B0228B00211569 /* Build configuration list for PBXProject "newsAlamofire" */;
+			buildConfigurationList = B4D2518322B0228B00211569 /* Build configuration list for PBXProject "Gazzettino News" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -248,8 +245,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B4D2518722B0228B00211569 /* newsAlamofire */,
-				B4D2519B22B0228D00211569 /* newsAlamofireTests */,
+				B4D2518722B0228B00211569 /* Gazzettino News */,
+				B4D2519B22B0228D00211569 /* Gazzettino NewsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -357,7 +354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4D251A122B0228D00211569 /* newsAlamofireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +362,7 @@
 /* Begin PBXTargetDependency section */
 		B4D2519E22B0228D00211569 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B4D2518722B0228B00211569 /* newsAlamofire */;
+			target = B4D2518722B0228B00211569 /* Gazzettino News */;
 			targetProxy = B4D2519D22B0228D00211569 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -514,14 +510,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYHT7H6MRT;
-				INFOPLIST_FILE = newsAlamofire/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Gazzettino News/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.20;
+				MARKETING_VERSION = 2.20.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordpress.bonafedeiosdeveloper.newsAlamofire;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Gazzettino News";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -534,14 +530,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYHT7H6MRT;
-				INFOPLIST_FILE = newsAlamofire/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Gazzettino News/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.20;
+				MARKETING_VERSION = 2.20.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordpress.bonafedeiosdeveloper.newsAlamofire;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Gazzettino News";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -565,7 +561,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/newsAlamofire.app/newsAlamofire";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gazzettino News.app/Gazzettino News";
 			};
 			name = Debug;
 		};
@@ -587,14 +583,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/newsAlamofire.app/newsAlamofire";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gazzettino News.app/Gazzettino News";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B4D2518322B0228B00211569 /* Build configuration list for PBXProject "newsAlamofire" */ = {
+		B4D2518322B0228B00211569 /* Build configuration list for PBXProject "Gazzettino News" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4D251A322B0228D00211569 /* Debug */,
@@ -603,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4D251A522B0228D00211569 /* Build configuration list for PBXNativeTarget "newsAlamofire" */ = {
+		B4D251A522B0228D00211569 /* Build configuration list for PBXNativeTarget "Gazzettino News" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4D251A622B0228D00211569 /* Debug */,
@@ -612,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4D251A822B0228D00211569 /* Build configuration list for PBXNativeTarget "newsAlamofireTests" */ = {
+		B4D251A822B0228D00211569 /* Build configuration list for PBXNativeTarget "Gazzettino NewsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4D251A922B0228D00211569 /* Debug */,

@@ -24,8 +24,9 @@ class NewsVC: UIViewController {
     var arrayURL : [String] = []
     var arrayLink : [String] = []
     var arrayAuthors : [String] = []
-
-   
+    
+    
+    
     
     @IBOutlet weak var newsCollection: UICollectionView!
     @IBOutlet weak var cityTitleLbl: UILabel!
@@ -48,6 +49,7 @@ class NewsVC: UIViewController {
         getNewFromJSON.delegate = self
         cityTitleLbl.text = nomeCitta
         getNewFromJSON.getJSON(forCity: inizialeCitta!)
+        
         
     }
     
@@ -73,6 +75,7 @@ class NewsVC: UIViewController {
 }
 
 
+
 //MARK: - UICollectionViewDelegate & UICollectionViewDataSource
 extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -83,16 +86,23 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as? NewsCell
         
+
       
-        DispatchQueue.main.async {
             let indexTitle = self.arrayTitle[indexPath.row]
             let indexImage = self.arrayImage[indexPath.row]
             let indexLink = self.arrayURL[indexPath.row]
             let author = self.arrayAuthors[indexPath.row]
-            cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink,auth: author)
-        }
         
-        return cell!
+            
+
+        
+        
+       DispatchQueue.main.async {
+            
+            cell?.setupTable(title : indexTitle, image: indexImage, link: indexLink,auth: author)
+       }
+        
+       return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -114,23 +124,35 @@ extension NewsVC : UICollectionViewDelegate, UICollectionViewDataSource {
 //MARK: - GetJSONDelegate
 extension NewsVC: GetJSONDelegate{
     func getArrayTitle(_ title: [String]) {
-        arrayTitle = title
-        newsCollection.reloadData()
+      //  DispatchQueue.main.async {
+            self.arrayTitle = title
+            self.newsCollection.reloadData()
+      //  }
+        
     }
     
     func getArrayImage(_ image: [String]) {
-        arrayImage = image
-        newsCollection.reloadData()
+        //  DispatchQueue.main.async {
+            self.arrayImage = image
+            self.newsCollection.reloadData()
+       // }
+        
     }
     
     func getArrayURL(_ url: [String]) {
-        arrayURL = url
-        newsCollection.reloadData()
+     //   DispatchQueue.main.async {
+            self.arrayURL = url
+            self.newsCollection.reloadData()
+     //   }
+        
     }
     
     func getArrayAuthors(_ authors: [String]) {
-        arrayAuthors = authors
-        newsCollection.reloadData()
+      //  DispatchQueue.main.async {
+            self.arrayAuthors = authors
+            self.newsCollection.reloadData()
+       // }
+        
     }
     
 }

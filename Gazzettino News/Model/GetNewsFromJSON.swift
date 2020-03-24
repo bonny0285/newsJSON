@@ -48,7 +48,6 @@ public struct GetNewsFromJSON{
     
     private func updateNewsData(json : JSON){
         print("CI SIAMO")
-        
         var arrayTitle: [String] = []
         var arrayImage: [String] = []
         var arrayURL: [String] = []
@@ -57,6 +56,7 @@ public struct GetNewsFromJSON{
         
         for i in 0...articles - 1 {
             let image = json[0]["articles"][i]["urlToImage"].stringValue
+           // print(image)
             let title = json[0]["articles"][i]["title"].stringValue
             let url = json[0]["articles"][i]["url"].stringValue
             let auth = json[0]["articles"][i]["source"]["name"].stringValue
@@ -67,13 +67,20 @@ public struct GetNewsFromJSON{
             arrayAuthors.append(auth)
         }
         
-        delegate?.getArrayTitle(arrayTitle)
-        delegate?.getArrayImage(arrayImage)
-        delegate?.getArrayURL(arrayURL)
-        delegate?.getArrayAuthors(arrayAuthors)
+        //DispatchQueue.main.async {
+            self.delegate?.getArrayTitle(arrayTitle)
+            self.delegate?.getArrayImage(arrayImage)
+            self.delegate?.getArrayURL(arrayURL)
+            self.delegate?.getArrayAuthors(arrayAuthors)
+        //}
+        
         //let author = json[0]["articles"][0]["author"].stringValue
         //let descriptions = json[0]["articles"][0]["descriprion"].stringValue
         
         
     }
+    
+    
+
+    
 }
