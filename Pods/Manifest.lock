@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.2.2)
+  - lottie-ios (3.1.8)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - lottie-ios
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - lottie-ios
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 8849897b7b16cc12f719ac687e99832d138cd875
+PODFILE CHECKSUM: 16cedc636b140cea8feb25af3f2fa1ee14d58611
 
 COCOAPODS: 1.9.3
