@@ -11,69 +11,55 @@ import Alamofire
 import SwiftyJSON
 
 
-public protocol GetJSONDelegate: class {
-    func getArrayTitle(_ title: [String])
-    func getArrayImage(_ image: [String])
-    func getArrayURL(_ url: [String])
-    func getArrayAuthors(_ authors: [String])
+protocol FetchedNewDidSuccessfullyDelegate: class {
+    func retriveNews(_ news: [News])
+    func retriveNewsDidFail(_ error: String)
 }
 
-public struct GetNewsFromJSON{
+
+class GetNewsFromJSON {
     
-    public var delegate: GetJSONDelegate?
+    var delegate: FetchedNewDidSuccessfullyDelegate?
     
-    public func getJSON(forCity inizialeCitta: String?){
+    func retriveNewsFromServer(_ city: String) {
         let APP_ID = "d1100591b9054c3da2fef23e4c9a2a15"
         let MY_URL = "https://newsapi.org/v2/top-headlines?country="
         let params : [String : String] = ["apiKey" : APP_ID]
-        parseJSON(forURL:MY_URL + inizialeCitta!,withParameters: params)
-    }
-    
-    private func parseJSON(forURL url: String?,withParameters parameters: [String:String]){
         
-        AF.request(url!, method: .get, parameters:parameters).responseJSON{
-            response in
+        
+        let url = MY_URL + city
+        
+        AF.request(url, method: .get, parameters: params).responseJSON {[weak self] (response) in
             
-            switch response.result{
+            guard let self = self else { return }
+            
+            switch response.result {
             case .success(let value):
-                print("Success! Got the News data")
                 let json = JSON(arrayLiteral: value)
-                self.updateNewsData(json: json)
+                print(json)
+                print(value)
+                let news = self.updateNewsData(json: json)
+                self.delegate?.retriveNews(news)
             case .failure(let error):
-                print(error.localizedDescription)
+                self.delegate?.retriveNewsDidFail(error.localizedDescription)
             }
         }
     }
-    
-    
-    private func updateNewsData(json : JSON){
-        print("CI SIAMO")
+
+    private func updateNewsData(json : JSON) -> [News] {
         
-        var arrayTitle: [String] = []
-        var arrayImage: [String] = []
-        var arrayURL: [String] = []
-        var arrayAuthors: [String] = []
+        var newsContainer: [News] = []
         let articles = json[0]["articles"].count
         
-        for i in 0...articles - 1 {
+        for i in 0 ... articles - 1 {
             let image = json[0]["articles"][i]["urlToImage"].stringValue
             let title = json[0]["articles"][i]["title"].stringValue
             let url = json[0]["articles"][i]["url"].stringValue
             let auth = json[0]["articles"][i]["source"]["name"].stringValue
             // let link = json[0]["articles"][i]["url"]
-            arrayTitle.append(title)
-            arrayImage.append(image)
-            arrayURL.append(url)
-            arrayAuthors.append(auth)
+            let news = News(author: auth, title: title, url: url, urlImage: image)
+            newsContainer.append(news)
         }
-        
-        delegate?.getArrayTitle(arrayTitle)
-        delegate?.getArrayImage(arrayImage)
-        delegate?.getArrayURL(arrayURL)
-        delegate?.getArrayAuthors(arrayAuthors)
-        //let author = json[0]["articles"][0]["author"].stringValue
-        //let descriptions = json[0]["articles"][0]["descriprion"].stringValue
-        
-        
+        return newsContainer
     }
 }

@@ -9,16 +9,20 @@
 import UIKit
 
 
-class News : NSObject {
+class News {
+    //MARK: - Properies
+
+    var author: String
+    var title: String
+    var url: String
+    var urlToImage: String
     
-    var author : String = ""
-    var title : String = ""
-    var descriptions : String = ""
-    var url : String = ""
-    var urlToImage : String = ""
-    var publishedAt : String = ""
-    var articles : [String] = []
-    
-    
-    
+    //MARK: - Lifecycle
+
+    init(author: String, title: String, url: String, urlImage: String) {
+        self.author = author
+        self.title = title
+        self.url = url
+        self.urlToImage = urlImage
+    }
 }
