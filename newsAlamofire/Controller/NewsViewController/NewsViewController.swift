@@ -144,6 +144,15 @@ extension NewsViewController: FetchedNewDidSuccessfullyDelegate {
     
     func retriveNewsDidFail(_ error: String) {
         debugPrint(error)
+        let controller = UIAlertController(title: "Attention !!!", message: "Please check your internet connection and try again.", preferredStyle: .alert)
+               let action = UIAlertAction(title: "OK", style: .cancel) { [weak self] (action) in
+                   guard let self = self else { return }
+            
+                self.mainCoordinator?.cancelTapped(self)
+               }
+               
+               controller.addAction(action)
+               self.present(controller, animated: true, completion: nil)
     }
 }
 
