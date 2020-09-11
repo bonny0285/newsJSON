@@ -119,6 +119,12 @@ class NewsViewController: UIViewController, MainCoordinated, NewsManagerDelegate
 
 //MARK: - TableViewDelegate
 extension NewsViewController: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        300
+//        
+//    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let auth = dataSource?.getAuthor(at: indexPath), let url = dataSource?.getURL(at: indexPath) else { return }
         
