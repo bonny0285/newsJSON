@@ -10,7 +10,6 @@ import UIKit
 
 class SearchViewController: UIViewController, MainCoordinated, NewsManagerDelegate {
     
-    
     //MARK: - Outlets
     @IBOutlet weak var cityPicker: UIPickerView!
     @IBOutlet weak var ricercaBtn: UIButton!
@@ -24,7 +23,6 @@ class SearchViewController: UIViewController, MainCoordinated, NewsManagerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         cityPicker.delegate = self
         cityPicker.dataSource = self
         cityPicker.setValue(UIColor.white, forKey: "textColor") 
@@ -41,8 +39,6 @@ class SearchViewController: UIViewController, MainCoordinated, NewsManagerDelega
         mainCoordinator?.configure(viewController: segue.destination)
     }
     
-    
-    
     //MARK: - Actions
     
     @IBAction func ricercaBtnWasPressed(_ sender: Any) {
@@ -53,7 +49,6 @@ class SearchViewController: UIViewController, MainCoordinated, NewsManagerDelega
         
         mainCoordinator?.searchForNewsDidPressed(self)
     }
-    
 }
 
 
@@ -76,9 +71,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         newManager?.inizialeCittà = newManager?.citiesContainer[row].inizial
         newManager?.nomeCittà = newManager?.citiesContainer[row].rawValue
-        debugPrint("LA TUA CITTA",newManager?.citiesContainer[row].rawValue, newManager?.citiesContainer[row].inizial)
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         

@@ -12,8 +12,6 @@ import SwiftyJSON
 import SafariServices
 import Lottie
 
-
-
 class NewsViewController: UIViewController, MainCoordinated, NewsManagerDelegate {
     
     //MARK: - Outlets
@@ -119,6 +117,12 @@ class NewsViewController: UIViewController, MainCoordinated, NewsManagerDelegate
 
 //MARK: - TableViewDelegate
 extension NewsViewController: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        300
+//        
+//    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let auth = dataSource?.getAuthor(at: indexPath), let url = dataSource?.getURL(at: indexPath) else { return }
         
@@ -133,6 +137,7 @@ extension NewsViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - FetchedNewDidSuccessfullyDelegate
 
 extension NewsViewController: FetchedNewDidSuccessfullyDelegate {
     func retriveNews(_ news: [News]) {
@@ -144,8 +149,19 @@ extension NewsViewController: FetchedNewDidSuccessfullyDelegate {
     
     func retriveNewsDidFail(_ error: String) {
         debugPrint(error)
+        let controller = UIAlertController(title: "Attention !!!", message: "Please check your internet connection and try again.", preferredStyle: .alert)
+               let action = UIAlertAction(title: "OK", style: .cancel) { [weak self] (action) in
+                   guard let self = self else { return }
+            
+                self.mainCoordinator?.cancelTapped(self)
+               }
+               
+               controller.addAction(action)
+               self.present(controller, animated: true, completion: nil)
     }
 }
+
+//MARK: - State
 
 extension NewsViewController {
     enum State {
