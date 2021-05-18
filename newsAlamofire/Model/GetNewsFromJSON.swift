@@ -29,17 +29,16 @@ class GetNewsFromJSON {
         
         let url = MY_URL + city
         
-        AF.request(url, method: .get, parameters: params).responseJSON {[weak self] (response) in
+        AF.request(url, method: .get, parameters: params).responseJSON { [weak self] response in
             
             guard let self = self else { return }
             
             switch response.result {
             case .success(let value):
                 let json = JSON(arrayLiteral: value)
-                print(json)
-                print(value)
                 let news = self.updateNewsData(json: json)
                 self.delegate?.retriveNews(news)
+                
             case .failure(let error):
                 self.delegate?.retriveNewsDidFail(error.localizedDescription)
             }

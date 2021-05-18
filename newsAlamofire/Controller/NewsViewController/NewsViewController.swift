@@ -12,8 +12,6 @@ import SwiftyJSON
 import SafariServices
 import Lottie
 
-
-
 class NewsViewController: UIViewController, MainCoordinated, NewsManagerDelegate {
     
     //MARK: - Outlets
@@ -139,6 +137,7 @@ extension NewsViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - FetchedNewDidSuccessfullyDelegate
 
 extension NewsViewController: FetchedNewDidSuccessfullyDelegate {
     func retriveNews(_ news: [News]) {
@@ -161,6 +160,8 @@ extension NewsViewController: FetchedNewDidSuccessfullyDelegate {
                self.present(controller, animated: true, completion: nil)
     }
 }
+
+//MARK: - State
 
 extension NewsViewController {
     enum State {
